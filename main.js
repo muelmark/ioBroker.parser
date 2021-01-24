@@ -193,7 +193,8 @@ function analyseData(obj, data, error, callback) {
         let regex = cloneRegex(obj.regex);
 
         data = (data || '').toString().replace(/\r\n|[\r\n]/g, ' ');
-
+        data = decodeHtmlEntity('data')
+        
         do {
             m = regex.exec(data);
             item--;
@@ -267,6 +268,12 @@ function analyseData(obj, data, error, callback) {
         adapter.log.warn('No regex object found for "' + obj._id + '"');
     }
 }
+
+var decodeHtmlEntity = function(str) {
+  return str.replace(/&#(\d+);/g, function(match, dec){
+    return String.fromCharCode(dec);
+  });
+};
 
 
 function readLink(link, callback) {
