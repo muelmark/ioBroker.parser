@@ -193,7 +193,7 @@ function analyseData(obj, data, error, callback) {
         let regex = cloneRegex(obj.regex);
 
         data = (data || '').toString().replace(/\r\n|[\r\n]/g, ' ');
-        data = decodeHtmlEntity('data')
+        data = decodeHtmlEntity(data)
         
         do {
             m = regex.exec(data);
