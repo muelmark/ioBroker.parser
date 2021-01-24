@@ -4,7 +4,7 @@
 
 // you have to require the utils module and call adapter function
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
-const adapter  = new utils.Adapter('parser');
+const adapter  = new utils.Adapter('parseMMU');
 let request;
 let path;
 let fs;
